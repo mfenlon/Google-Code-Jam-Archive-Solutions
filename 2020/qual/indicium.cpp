@@ -1,4 +1,4 @@
-//Solution submitted by xiaowuc1. Comments added.
+//Solution submitted by xiaowuc1. Comments added by MattyFen.
 //Link to solution set: https://codingcompetitions.withgoogle.com/codejam/submissions/000000000019fd27/eGlhb3d1YzE
 
 //Indicium can be found at:
