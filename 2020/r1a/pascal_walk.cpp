@@ -1,4 +1,5 @@
-//Runtime Error
+//Pascal Walk can be found at:
+//https://codingcompetitions.withgoogle.com/codejam/round/000000000019fd74/00000000002b1353
 
 #include <bits/stdc++.h> //import every standard library
 
@@ -22,7 +23,7 @@ void walkTheEdges(int n,int row,bool left){
 
 string trim(string bstring){
 	for(int i=0;i<1000;++i){
-		if(bstring[i]=='0') bstring=bstring.substr(i+1);
+		if(bstring[0]=='0') bstring=bstring.substr(1);
 		else return bstring;
 	}
 	return bstring;
