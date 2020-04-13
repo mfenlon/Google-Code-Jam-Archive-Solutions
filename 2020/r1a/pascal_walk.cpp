@@ -28,11 +28,11 @@ string trim(string bstring){
 
 void tsolve(){
   int n; cin>>n;
-  if(n<=40){
+  if(n<=30){
   	walkTheEdges(n,1,true);
   	return;
   }
-  int tmpn=n-40;
+  int tmpn=n-30;
   bitset<32> b(tmpn);
   string bstring=b.to_string();
   bool left=true;
@@ -60,7 +60,7 @@ void tsolve(){
   	  ++row;
   	}
   }
-  walkTheEdges(40-skip,row,left);
+  walkTheEdges(30-skip,row,left);
 }
 
 void solve(){
