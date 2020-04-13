@@ -2,17 +2,19 @@
 
 using namespace std;
 
+typedef vector<string> VS;
+
 void tsolve(){
-  int r,c; cin>>r>>c;
-  int f[r][c];
-  for(int i=0;i<r;++i){
-  	for(int j=0;j<c;++j){
-  		cin>>f[i][j];
-  		sum+=f[i][j];
+  int n; cin>>n;
+  string sol="*";
+  for(int i=0;i<n;++i){
+  	string p; cin>>p;
+  	string tmp="";
+  	VS pieces;
+  	for(int i=0;i<p.length();++i){
+  	  if(p[i]!='*') tmp+= p[i];
+  	  else {pieces.push_back(tmp); tmp="";}
   	}
-  }
-  bool another=true;
-  while(another){
   }
 }
 
