@@ -1,6 +1,8 @@
 //Adapted from Gennady Korotkevich's solution at:
 //https://codingcompetitions.withgoogle.com/codejam/submissions/000000000019fd74/R2VubmFkeS5Lb3JvdGtldmljaA
 
+//Look into 2 1 1 2
+
 #include <bits/stdc++.h> //import every standard library
 
 using namespace std;
