@@ -1,7 +1,8 @@
 //Adapted from Gennady Korotkevich's solution at:
 //https://codingcompetitions.withgoogle.com/codejam/submissions/000000000019fd74/R2VubmFkeS5Lb3JvdGtldmljaA
 
-//WA for Test Set 2
+//Square Dance can be found at:
+//https://codingcompetitions.withgoogle.com/codejam/round/000000000019fd74/00000000002b1355
 
 #include <bits/stdc++.h> //import every standard library
 
@@ -9,6 +10,7 @@ using namespace std;
 
 typedef vector<int> VI;
 typedef vector<vector<int>> VVI;
+typedef long long ll;
 
 void tsolve(){
   int h,w; cin >> h >> w;
@@ -49,8 +51,7 @@ void tsolve(){
       if(down[r][c]!=h) {totskill+=f[down[r][c]][c]; ++neighbors;}
       if(left[r][c]!=-1) {totskill+=f[r][left[r][c]]; ++neighbors;}
       if(right[r][c]!=w) {totskill+=f[r][right[r][c]]; ++neighbors;}
-      if(neighbors>0) avgskill=(float)totskill/(float)neighbors;
-      if(avgskill>(float)f[r][c]){
+      if(totskill>f[r][c]*neighbors){
         when[r][c]=rd;
         elims.insert(make_pair(r,c));
       }
@@ -68,7 +69,7 @@ void tsolve(){
   for(int i=0;i<h;++i){
     for(int j=0;j<w;++j){
       if(when[i][j]==-1) when[i][j]=rd;
-      total+=f[i][j]*when[i][j];
+      total+=1ll*f[i][j]*when[i][j];
     }
   }
   cout << total << '\n';
