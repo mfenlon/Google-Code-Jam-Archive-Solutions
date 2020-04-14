@@ -1,7 +1,7 @@
 //Adapted from Gennady Korotkevich's solution at:
 //https://codingcompetitions.withgoogle.com/codejam/submissions/000000000019fd74/R2VubmFkeS5Lb3JvdGtldmljaA
 
-//Look into 2 1 1 2
+//WA for Test Set 2
 
 #include <bits/stdc++.h> //import every standard library
 
@@ -36,6 +36,7 @@ void tsolve(){
   }
   int rd=0;
   while(check.size()!=0){
+    set<pair<int,int>> elims;
     set<pair<int,int>> new_check=check;
     check.clear();
     ++rd;
@@ -51,16 +52,17 @@ void tsolve(){
       if(neighbors>0) avgskill=(float)totskill/(float)neighbors;
       if(avgskill>(float)f[r][c]){
         when[r][c]=rd;
-        if(right[r][c]!=w) left[r][right[r][c]]=left[r][c];
-        if(left[r][c]!=-1) right[r][left[r][c]]=right[r][c];
-        if(down[r][c]!=h) up[down[r][c]][c]=up[r][c];
-        if(up[r][c]!=-1) down[up[r][c]][c]=down[r][c];
-        if(up[r][c]!=-1) check.insert(make_pair(up[r][c],c));
-        if(down[r][c]!=h) check.insert(make_pair(down[r][c],c));
-        if(left[r][c]!=-1) check.insert(make_pair(r,left[r][c]));
-        if(right[r][c]!=w) check.insert(make_pair(r,right[r][c]));
+        elims.insert(make_pair(r,c));
       }
     }
+    for(auto& a : elims){
+      int r=a.first, c=a.second;
+      if(right[r][c]!=w) {left[r][right[r][c]]=left[r][c]; check.insert(make_pair(r,right[r][c]));}
+      if(left[r][c]!=-1) {right[r][left[r][c]]=right[r][c]; check.insert(make_pair(r,left[r][c]));}
+      if(down[r][c]!=h) {up[down[r][c]][c]=up[r][c]; check.insert(make_pair(down[r][c],c));}
+      if(up[r][c]!=-1) {down[up[r][c]][c]=down[r][c]; check.insert(make_pair(up[r][c],c));}
+    }
+    for(auto& b : elims) check.erase(b);
   }
   long long total=0;
   for(int i=0;i<h;++i){
